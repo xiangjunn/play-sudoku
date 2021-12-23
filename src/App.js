@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Grid from './Grid';
+import Button from '@mui/material/Button';
+import React, { createRef } from 'react';
 
 function App() {
+  const gridRef = createRef();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Sudoku</h2>
+      <Grid ref={gridRef}></Grid>
+      <Button variant="contained" sx={{m: 2}} onClick={() => gridRef.current.solveSudoku()}>solve</Button>
     </div>
   );
 }
